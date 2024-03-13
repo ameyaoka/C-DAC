@@ -1,10 +1,11 @@
 #!/bin/bash
-read -p "Enter two numbers: " num1 num2
+read -p "Enter number:" num1 num2
 
-if [[ $num1 -eq $num2 ]]
+if [ "$num1" -eq "$num2" ]
 then
-    echo "Numbers are the same"
+    echo "$num1 and $num2 are equal"
 else
-    echo "Numbers are different"
+    echo "$num1 and $num2 are not equal"
 fi
+
 
