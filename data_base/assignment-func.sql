@@ -1,6 +1,98 @@
 # lecture  
 
-# sql functions 
+# sql functions  and procedures 
+use hr ;
+# 1. Write a stored procedure to retrieve all employees from the Employees table for a given department ID.
+
+DELIMITER //
+
+CREATE PROCEDURE GetEmployeesByDepartmentID (IN dept_id int)
+BEGIN
+    SELECT *
+    FROM   employees
+    WHERE department_id  = dept_id ;
+END //
+
+DELIMITER ;
+
+CALL GetEmployeesByDepartmentID(100) ; 
+
+DROP PROCEDURE IF EXISTS GetEmployeesByDepartmentID;
+
+
+# 2 Create a function that calculates the total salary expenditure for a given department ID.
+
+DELIMITER //
+
+CREATE FUNCTION cal_total_sal_exp (dept_id INT) 
+RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE totalSalary DECIMAL(10, 2);
+    
+    SELECT SUM(salary) INTO totalSalary
+    FROM employees
+    WHERE DEPARTMENT_ID = dept_id  ;
+    
+    RETURN totalSalary;
+END //
+
+DELIMITER ;
+
+SELECT   cal_total_sal_exp (100) ;
+
+DROP function cal_total_sal_exp ;
+
+
+# 3. Develop a stored procedure that accepts an employee ID as an input parameter and increases the salary of that employee by a specified percentage.
+
+
+DELIMITER //
+
+CREATE PROCEDURE IncreaseSalaryByPercentage (IN empID INT, IN increasePercentage DECIMAL(5,2))
+BEGIN
+    DECLARE currentSalary DECIMAL(10, 2);
+    DECLARE newSalary DECIMAL(10, 2);
+    
+    SELECT Salary INTO currentSalary
+    FROM employees
+    WHERE employee_ID = empID;
+    
+    
+    SET newSalary = currentSalary * (1 + increasePercentage / 100);
+    
+    UPDATE employees
+    SET Salary = newSalary
+    WHERE EMPLOYEE_ID = empID;
+END //
+
+DELIMITER ;
+
+CALL IncreaseSalaryByPercentage(101, 10);
+DROP procedure  IncreaseSalaryByPercentage ;
+
+#    4. Write a function to determine the average salary for employees in a specific job title category.
+
+
+DELIMITER //
+
+CREATE FUNCTION CalculateAverageSalaryByJobTitleCategory (j_title VARCHAR(100)) RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE avgSalary DECIMAL(10, 2);
+    
+    SELECT AVG(e.Salary) INTO avgSalary
+    FROM employees e
+    JOIN jobs j ON e.job_ID = j.job_id
+    WHERE j.job_title = j_title ;
+    
+    RETURN avgSalary;
+END //
+
+DELIMITER ;
+
+
+
+SELECT CalculateAverageSalaryByJobTitleCategory('accountant');
+DROP function   CalculateAverageSalaryByJobTitleCategory ;
 
 
 delimiter $$
@@ -181,8 +273,6 @@ $$
 delimiter ; 
 
 select num_emp('programmer');
-
-
 
 
 
