@@ -157,3 +157,28 @@ https://www.artima.com/insidejvm/ed2/index.html
 
 
 
+
+
+
+
+
+## wrapper class
+
+- Wrapper classes in Java are used to convert primitive types into corresponding objects. 
+
+converting a primitive datatype to non-primitive  datatype we call it boxing .
+
+
+
+
+## OOP's 
+
+### encapsulation   (data hiding) 
+
+
+ - 
+
+
+
+
+
