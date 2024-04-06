@@ -2,7 +2,8 @@
 
 // class is a blue print 
 // in this example we have a class car 
-// 
+//  you are essentially creating a new data type. 
+
 public class Car {
     String color; // Declaring a variable to store the color of the car
     String make; // Declaring a variable to store the make of the car
@@ -10,6 +11,10 @@ public class Car {
 
     // Method to start the car
     // A method in Java is similar to a function but is associated with an instance of a class (object).
+   //  public is access specifier   
+   //  method can be accessed from any other class in the application
+// void is the return type of the method. In this case, void means that the method does not return any value. 
+
 
     public void start() {
         System.out.println("The car has started."); // Output message when the car starts
@@ -25,7 +30,7 @@ public class Car {
         System.out.println("The car has stopped."); // Output message when the car stops
     }
 
-    // Main method where the program execution starts
+    // Main method where the program execution starts ( it is an entry point for program. 
     public static void main(String[] args) {
         Car myCar = new Car(); // Creating an object of the Car class
 

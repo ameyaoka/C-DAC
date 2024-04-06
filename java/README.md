@@ -173,7 +173,29 @@ converting a primitive datatype to non-primitive  datatype we call it boxing .
 
 ## OOP's 
 
+subroutine : 
+
+## control structure 
+
+1. select statements 
+	- if ...else 
+	- switch ...case 
+
+
+2. iteration statements 
+	- while 
+	- do .. while 
+	- for 
+
+
+3. jump statements 
+	- brek 
+	- continue 
+
 ### encapsulation   (data hiding) 
+
+
+
 
 
  - 
@@ -181,4 +203,4 @@ converting a primitive datatype to non-primitive  datatype we call it boxing .
 
 
 
-
+- 
