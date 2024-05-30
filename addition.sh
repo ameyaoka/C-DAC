@@ -1,5 +1,9 @@
 #!/bin/bash
- 
+
+
+# This is a bash code for addition 
+
+
 # Prompt the user to enter the first number
 echo "Enter the first number:"
 read num1
